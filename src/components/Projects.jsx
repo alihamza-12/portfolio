@@ -1,6 +1,12 @@
 import React from "react";
 import Reveal from "./Reveal";
 
+import sync0Img from "../assets/synco.GIF";
+import armecoImg from "../assets/newarmeco.GIF";
+import aiWorkflowImg from "../assets/react.svg";
+import scrapImg from "../assets/Scrapyad.GIF";
+import ecommerceImg from "../assets/ecommerce.GIF";
+
 const Projects = () => {
   const projects = [
     {
@@ -12,6 +18,7 @@ const Projects = () => {
       live: "https://sync0.dev",
       color: "from-blue-500 to-indigo-600",
       showIndex: true,
+      image: sync0Img,
     },
     {
       title: "Armeco Electronics Store Management",
@@ -22,6 +29,7 @@ const Projects = () => {
       live: "https://nae-store-frontend.vercel.app/",
       color: "from-purple-500 to-pink-600",
       showIndex: true,
+      image: armecoImg,
     },
     {
       title: "AI-Powered Workflow Automations",
@@ -39,6 +47,7 @@ const Projects = () => {
       live: null,
       color: "from-emerald-500 to-teal-600",
       showIndex: false,
+      image: aiWorkflowImg,
     },
     {
       title: "Scrap Yard Management System",
@@ -49,6 +58,7 @@ const Projects = () => {
       live: "https://scrap-yard-six.vercel.app/",
       color: "from-blue-500 to-indigo-600",
       showIndex: false,
+      image: scrapImg,
     },
     {
       title: "E-commerce Outfit Platform (Frontend Only)",
@@ -59,6 +69,7 @@ const Projects = () => {
       live: "https://e-commerce-outfits-eta.vercel.app/",
       color: "from-purple-500 to-pink-600",
       showIndex: false,
+      image: ecommerceImg,
     },
   ];
 
@@ -88,12 +99,18 @@ const Projects = () => {
           {projects.map((project, idx) => (
             <Reveal key={idx} delay={idx * 0.1}>
               <div className="group relative bg-slate-900/30 border border-white/5 rounded-3xl overflow-hidden hover:border-white/10 transition-all flex flex-col h-full">
-                {/* Card Header (Gradient Image Placeholder) */}
                 <div
                   className={`h-48 bg-gradient-to-br ${project.color} p-8 flex items-center justify-center relative`}
                 >
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-60 transition-opacity"
+                  />
+
+                  {/* index watermark */}
                   {project.showIndex ? (
-                    <div className="text-center">
+                    <div className="text-center relative z-10">
                       <p className="text-white font-bold opacity-20 text-4xl select-none">
                         Project 0{idx + 1}
                       </p>
@@ -102,7 +119,7 @@ const Projects = () => {
 
                   {/* Overlay Links */}
                   {project.github || project.live ? (
-                    <div className="absolute inset-0 bg-slate-950/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+                    <div className="absolute inset-0 z-20 bg-slate-950/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
                       {project.github ? (
                         <a
                           href={project.github}
@@ -127,7 +144,6 @@ const Projects = () => {
                   ) : null}
                 </div>
 
-                {/* Card Body */}
                 <div className="p-8 flex-1 flex flex-col">
                   <h3 className="text-xl font-bold text-white mb-4 group-hover:text-indigo-400 transition-colors">
                     {project.title}
