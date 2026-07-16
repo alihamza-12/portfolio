@@ -3,7 +3,6 @@ import Reveal from "./Reveal";
 
 import sync0Img from "../assets/synco.GIF";
 import armecoImg from "../assets/newarmeco.GIF";
-import aiWorkflowImg from "../assets/react.svg";
 import scrapImg from "../assets/Scrapyad.GIF";
 import ecommerceImg from "../assets/ecommerce.GIF";
 
@@ -16,9 +15,9 @@ const Projects = () => {
       tech: ["React.js", "Tailwind CSS", "Conversational AI UI"],
       github: "https://sync0.dev",
       live: "https://sync0.dev",
-      color: "from-blue-500 to-indigo-600",
       showIndex: true,
       image: sync0Img,
+      isIcon: false,
     },
     {
       title: "Armeco Electronics Store Management",
@@ -27,9 +26,9 @@ const Projects = () => {
       tech: ["MERN Stack", "JWT", "Admin Controls"],
       github: "https://nae-store-frontend.vercel.app/",
       live: "https://nae-store-frontend.vercel.app/",
-      color: "from-purple-500 to-pink-600",
       showIndex: true,
       image: armecoImg,
+      isIcon: false,
     },
     {
       title: "AI-Powered Workflow Automations",
@@ -45,9 +44,9 @@ const Projects = () => {
       ],
       github: null,
       live: null,
-      color: "from-emerald-500 to-teal-600",
       showIndex: false,
-      image: aiWorkflowImg,
+      image: "https://cdn.simpleicons.org/n8n/FF6C37",
+      isIcon: true,
     },
     {
       title: "Scrap Yard Management System",
@@ -56,9 +55,9 @@ const Projects = () => {
       tech: ["React.js", "Redux Toolkit", "RTK Query", "Tailwind CSS", "JWT"],
       github: "https://github.com/alihamza-12/Scrap-Yard",
       live: "https://scrap-yard-six.vercel.app/",
-      color: "from-blue-500 to-indigo-600",
       showIndex: false,
       image: scrapImg,
+      isIcon: false,
     },
     {
       title: "E-commerce Outfit Platform (Frontend Only)",
@@ -67,9 +66,9 @@ const Projects = () => {
       tech: ["Vue.js", "Bootstrap", "JavaScript", "API Integration"],
       github: "https://github.com/alihamza-12/e-commerce-outfits",
       live: "https://e-commerce-outfits-eta.vercel.app/",
-      color: "from-purple-500 to-pink-600",
       showIndex: false,
       image: ecommerceImg,
+      isIcon: false,
     },
   ];
 
@@ -99,19 +98,22 @@ const Projects = () => {
           {projects.map((project, idx) => (
             <Reveal key={idx} delay={idx * 0.1}>
               <div className="group relative bg-slate-900/30 border border-white/5 rounded-3xl overflow-hidden hover:border-white/10 transition-all flex flex-col h-full">
-                <div
-                  className={`h-48 bg-gradient-to-br ${project.color} p-8 flex items-center justify-center relative`}
-                >
+                {/* Image / Header Container */}
+                <div className="h-48 w-full relative overflow-hidden bg-slate-950 flex items-center justify-center border-b border-white/5">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-60 transition-opacity"
+                    className={`absolute inset-0 w-full h-full transition-all duration-500 group-hover:scale-105 ${
+                      project.isIcon
+                        ? "object-contain p-10 opacity-80 group-hover:opacity-100"
+                        : "object-cover opacity-100"
+                    }`}
                   />
 
                   {/* index watermark */}
                   {project.showIndex ? (
-                    <div className="text-center relative z-10">
-                      <p className="text-white font-bold opacity-20 text-4xl select-none">
+                    <div className="text-center relative z-10 select-none">
+                      <p className="text-white font-bold opacity-10 text-4xl">
                         Project 0{idx + 1}
                       </p>
                     </div>
@@ -125,7 +127,7 @@ const Projects = () => {
                           href={project.github}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="p-3 rounded-full bg-white text-slate-950 hover:bg-slate-200 transition-colors"
+                          className="p-3 rounded-full bg-white text-slate-950 hover:bg-slate-200 transition-colors text-sm font-medium"
                         >
                           Repo
                         </a>
@@ -135,7 +137,7 @@ const Projects = () => {
                           href={project.live}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="p-3 rounded-full bg-indigo-600 text-white hover:bg-indigo-500 transition-colors"
+                          className="p-3 rounded-full bg-indigo-600 text-white hover:bg-indigo-500 transition-colors text-sm font-medium"
                         >
                           Live
                         </a>
