@@ -15,7 +15,6 @@ const Projects = () => {
       tech: ["React.js", "Tailwind CSS", "Conversational AI UI"],
       github: "https://sync0.dev",
       live: "https://sync0.dev",
-      showIndex: true,
       image: sync0Img,
       isIcon: false,
     },
@@ -26,7 +25,6 @@ const Projects = () => {
       tech: ["MERN Stack", "JWT", "Admin Controls"],
       github: "https://nae-store-frontend.vercel.app/",
       live: "https://nae-store-frontend.vercel.app/",
-      showIndex: true,
       image: armecoImg,
       isIcon: false,
     },
@@ -44,7 +42,6 @@ const Projects = () => {
       ],
       github: null,
       live: null,
-      showIndex: false,
       image: "https://cdn.simpleicons.org/n8n/FF6C37",
       isIcon: true,
     },
@@ -55,7 +52,6 @@ const Projects = () => {
       tech: ["React.js", "Redux Toolkit", "RTK Query", "Tailwind CSS", "JWT"],
       github: "https://github.com/alihamza-12/Scrap-Yard",
       live: "https://scrap-yard-six.vercel.app/",
-      showIndex: false,
       image: scrapImg,
       isIcon: false,
     },
@@ -66,7 +62,6 @@ const Projects = () => {
       tech: ["Vue.js", "Bootstrap", "JavaScript", "API Integration"],
       github: "https://github.com/alihamza-12/e-commerce-outfits",
       live: "https://e-commerce-outfits-eta.vercel.app/",
-      showIndex: false,
       image: ecommerceImg,
       isIcon: false,
     },
@@ -109,15 +104,6 @@ const Projects = () => {
                         : "object-cover opacity-100"
                     }`}
                   />
-
-                  {/* index watermark */}
-                  {project.showIndex ? (
-                    <div className="text-center relative z-10 select-none">
-                      <p className="text-white font-bold opacity-10 text-4xl">
-                        Project 0{idx + 1}
-                      </p>
-                    </div>
-                  ) : null}
 
                   {/* Overlay Links */}
                   {project.github || project.live ? (
