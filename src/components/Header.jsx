@@ -33,7 +33,7 @@ const Header = () => {
             Skills
           </a>
           <a
-            href="/src/assets/Ali%20Hamza.pdf"
+            href="/Ali_Hamza.pdf" // Correctly points to public/Ali_Hamza.pdf
             target="_blank"
             rel="noopener noreferrer"
             className="bg-indigo-600/10 hover:bg-indigo-600/20 border border-indigo-500/20 text-indigo-400 px-5 py-2 rounded-xl font-medium transition-all"
